@@ -3,7 +3,6 @@ import { fade, fadeSlide } from '../../shared/animations/animations';
 import localeFr from '@angular/common/locales/fr';
 import { RayonModel } from '../../shared/models/rayon-model';
 import { Subscription } from 'rxjs';
-import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { ActivatedRoute } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from 'express';
@@ -21,8 +20,8 @@ export  const  DATE_PIPE_DEFAULT_TIMEZONE  =  new  InjectionToken < string > ( '
   standalone: true,
   imports: [],
   templateUrl: './liste-rayon.component.html',
-  styleUrl: './liste-rayon.component.css',
-  animations: [fade, fadeSlide]
+  styleUrls: ['./liste-rayon.component.css',]
+  //animations: [fade, fadeSlide]
 })
 export class ListeRayonComponent implements OnInit,OnDestroy {
 
@@ -53,8 +52,7 @@ export class ListeRayonComponent implements OnInit,OnDestroy {
   show: boolean = false;
   rayons= [] as RayonModel[];
   connectedUser = new UtilisateurModel();
-  @BlockUI()
-  blockUI!: NgBlockUI;
+
   ngOnInit(): void {
 
     this.getConnectedUser();
@@ -64,17 +62,17 @@ export class ListeRayonComponent implements OnInit,OnDestroy {
     motif:new FormControl('',[Validators.required ] ),
     });
     this.initSearchForm();
-    const routeParam = this.route.snapshot.paramMap.get('rayonId');
-    if (routeParam) {
-      const patientIdFromRoute = Number(this.encryptService.decryptText(routeParam));
-      this.subscriptions.push(
-        this.ouvrageService.getRAYONId(patientIdFromRoute).subscribe(
-          (rayon: any) => {
-            this.rayon = rayon;
-          }
-        )
-      );
-    }
+    // const routeParam = this.route.snapshot.paramMap.get('rayonId');
+    // if (routeParam) {
+    //   const patientIdFromRoute = Number(this.encryptService.decryptText(routeParam));
+    //   this.subscriptions.push(
+    //     this.ouvrageService.getRAYONId(patientIdFromRoute).subscribe(
+    //       (rayon: any) => {
+    //         this.rayon = rayon;
+    //       }
+    //     )
+    //   );
+    // }
   }
   ngOnDestroy(): void {
     throw new Error('Method not implemented.');
@@ -107,10 +105,6 @@ export class ListeRayonComponent implements OnInit,OnDestroy {
     );
   }
 
-  change(patient  : RayonModel){
-    this.router.get(['/gestion-ouvrage/rayon-edit/',this.encryptService.encryptText(patient.id+'')]);
-
-  }
 
   onSelectedPageSize(event: any) {
     this.page = 0;

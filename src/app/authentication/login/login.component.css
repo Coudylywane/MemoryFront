@@ -4,8 +4,8 @@
 }
 
 .card{
-  //height: 116%;
-  //background-color:#0d1549;
+  /* //height: 116%;
+  //background-color:#0d1549; */
 }
 .text-gray{
   color: white;
@@ -16,7 +16,6 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
-  //margin-left: 0px;
   margin-left: 81px;
   margin-top: 33px;
 }
@@ -47,7 +46,6 @@ p {
   margin-left: auto;
   font-size: 13px;
   text-decoration: none;
-  //color: #00A388;
   color: #C23220;
 
 }
@@ -65,7 +63,6 @@ a:hover {
 .btn-block{
   margin-top: 20px;
   border-radius: 15px;
-  //background-color: #00A388;
   background-color:#C23220;
   color: white;
 
@@ -160,7 +157,6 @@ a[target='_blank'] {
   transition: all 0.1s ease-in-out
 }
 label .text-muted{
-  //color: #00A388;
   color:#0d1549;
 }
 
@@ -204,7 +200,6 @@ label .text-muted{
           align-items: center;
           justify-content: center;
           padding: 20px;
-          //margin-left: 0;
           margin-top: 33px;
       }
 
@@ -225,7 +220,6 @@ label .text-muted{
       align-items: center;
       justify-content: center;
       padding: 20px;
-      //margin-left: 0;
       margin-left: 134px;
       margin-top: 33px;
   }

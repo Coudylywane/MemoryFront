@@ -6,7 +6,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './add-rayon.component.html',
-  styleUrl: './add-rayon.component.css'
+  styleUrls: ['./add-rayon.component.css']
 })
 export class AddRayonComponent implements OnInit , OnDestroy{
 
