@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
         (x) => {
           if (x) {
             this.err = 'Login ou mot de passe incorrect';
-            // this.progressbar = false;
           } else {
             this.err = '';
           }

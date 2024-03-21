@@ -8,11 +8,10 @@ import { bootstrapApplication } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
-   // ListeRayonComponent,
-    //AddRayonComponent
+    ListeRayonComponent,
+    AddRayonComponent
   ],
   imports: [
-    //CommonModule,
     SharedModule,
    GestionOuvrageModule
   ]

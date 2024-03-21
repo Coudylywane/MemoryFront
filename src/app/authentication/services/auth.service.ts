@@ -16,8 +16,6 @@ export class AuthService {
   constructor(
     private router: Router,
     private http: HttpClient,
-    //private socketService: SocketService
-   // private storage: LocalStorageService
   ) { }
 
   async authenticationProcess(url: string, body: any) {
@@ -41,7 +39,6 @@ export class AuthService {
   }
 
   async setSession(authResult: any) {
-
     localStorage.removeItem('id_token');
     localStorage.setItem('id_token', authResult.token);
   }
@@ -56,39 +53,16 @@ export class AuthService {
     return localStorage.getItem('id_token')?.toString();
   }
 
-  /*public isLoggedIn() {
-    return moment().isBefore(this.getExpiration());
-  }*/
-
   logout() {
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
     localStorage.removeItem('mdd_user');
-   // this.socketService?._disconnect();
     this.router.navigate(['/login']);
   }
 
   public identity() {
     return this.http.get<any>('/api/connected-user');
   }
-  // public isLoggedIn() {
-  //   return moment().isBefore(this.getExpiration());
-  // }
-  // getExpiration() {
-  //   const expiration = this.storage.retrieve('expires_at');
-  //   const expiresAt = JSON.parse(expiration);
-  //   return moment(expiresAt);
-  // }
-  // convertText(conversion: string, user: any) {
-  //   if (conversion === 'encrypt') {
-  //     return CryptoJS.AES.encrypt(JSON.stringify(user).trim(), this.SECRET.trim()).toString();
-  //   } else {
-  //     const bytes = CryptoJS.AES.decrypt(user, this.SECRET.trim());
-  //     if (bytes.toString()) {
-  //       return JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
-  //     }
-  //   }
-  // }
 
   hasAuthority(authorities: string[], user: UtilisateurModel): boolean {
     for (const authority of authorities) {
